@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers\SMS;
+
+trait create_sms
+{
+  public function SendSMS($toUser, $Message)
+  {
+    // $url = "http://103.53.84.15:8746/sendtext?apikey=6948f557699c4b79&secretkey=3c084517&callerID=sovereign&toUser=".urlencode($toUser)."&messageContent=".urlencode($Message);
+    // $url = "http://103.53.84.15:8746/sendtext/6948f557699c4b79/3c084517?callerID=sender123&toUser=".urlencode($toUser)."&messageContent=".urlencode($Message);
+    $url = "http://sms.songbirdtelecom.com:8746/sendtext?apikey=6948f557699c4b79&secretkey=3c084517&callerID=sovereign&toUser=".urlencode($toUser)."&messageContent=".urlencode($Message);
+    $response = file_get_contents($url);
+    // Decode the JSON data into an associative array
+    $dataArray = json_decode($response, true);
+    // massage status check
+    if ($dataArray['Text'] == 'ACCEPTD') {
+      return 'success';
+    } else {
+      return 'faild';
+    }
+  }
+}

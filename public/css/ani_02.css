@@ -1,0 +1,22 @@
+      /* Keyframes for a smooth translation and opacity change */
+      @keyframes customSlideIn {
+          0% {
+              opacity: 0;
+              transform: translate3d(0, 300px, 0);
+              /* Starts below the screen */
+          }
+
+          100% {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+              /* Moves into normal position */
+          }
+      }
+
+      /* Apply the animation to .ctm_anim */
+      .ctm_anim {
+          animation: customSlideIn 1.5s cubic-bezier(0.46, 0.03, 0.52, 0.96) forwards;
+          opacity: 0;
+          /* Initial state, invisible */
+          will-change: transform, opacity;
+      }
