@@ -100,8 +100,3 @@ It also supports in-app notifications, and offers API integrations for mobile ap
 - Electrical work history log  
 
 ---
-
-## 🖼️ Branding & Extras
-- User info panel (Name, ID)  
-- Notification bell with alert count  
-- Company branding with logo and tagline  
